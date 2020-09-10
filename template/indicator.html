@@ -1,0 +1,110 @@
+<style type="text/css">
+    * {
+        font-family: Arial, sans-serif;
+    }
+
+    .tg {
+        border-collapse: collapse;
+        border-color: #ccc;
+        border-spacing: 0;
+    }
+
+    .tg td {
+        background-color: #fff;
+        border-color: #ccc;
+        border-style: solid;
+        border-width: 1px;
+        color: #333;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 10px 14px;
+        word-break: normal;
+    }
+
+    .tg th {
+        background-color: #f0f0f0;
+        border-color: #ccc;
+        border-style: solid;
+        border-width: 1px;
+        color: #333;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 14px;
+        word-break: normal;
+    }
+
+    .tg .tg-qbk9 {
+        background-color: #efefef;
+        border-color: inherit;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: middle
+    }
+
+    .tg .tg-c3ow {
+        border-color: inherit;
+        text-align: center;
+        vertical-align: top
+    }
+
+    .tg .tg-fymr {
+        border-color: inherit;
+        font-weight: bold;
+        text-align: left;
+        vertical-align: top
+    }
+
+    .tg .tg-0pky {
+        border-color: inherit;
+        text-align: left;
+        vertical-align: top
+    }
+</style>
+<h1>
+    {{title_h1}}
+</h1>
+<table class="tg">
+    <thead>
+        <tr>
+            <th class="tg-fymr">Detalle del reporte</th>
+            <th class="tg-0pky" colspan="4">{{title}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="tg-fymr">Fecha inicio</td>
+            <td class="tg-0pky">{{dateStart}}</td>
+            <td class="tg-fymr">Fecha Final</td>
+            <td class="tg-0pky" colspan="2">{{dateEnd}}</td>
+        </tr>
+        <tr>
+            <td class="tg-fymr">Fecha de creación</td>
+            <td class="tg-c3ow" colspan="2">{{dateNow}}</td>
+            <td class="tg-fymr">Formula</td>
+            <td class="tg-0pky">{{formula}}</td>
+        </tr>
+        <tr>
+            <td class="tg-qbk9">Item</td>
+            <td class="tg-qbk9" width="100px">Fecha</td>
+            <td class="tg-qbk9" width="200px">{{title_value_in_compare}}</td>
+            <td class="tg-qbk9">Nº de pruebas ejecutadas<br>requerido para cubir todos<br>los requerimientos (CDR)</td>
+            <td class="tg-qbk9">Valor de cobertura</td>
+        </tr>
+        {{#each data}}
+        <tr>
+            <td class="tg-0pky">{{index}}</td>
+            <td class="tg-0pky">{{dateCreate}}</td>
+            <td class="tg-0pky">{{casos_resueltos}}</td>
+            <td class="tg-0pky">{{total}}</td>
+            <td class="tg-0pky">{{indicador}}</td>
+        </tr>
+        {{/each}}
+        <tr>
+            <td class="tg-c3ow" colspan="4">Promedio</td>
+            <td class="tg-0pky">{{promedio}}</td>
+        </tr>
+    </tbody>
+</table>

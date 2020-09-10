@@ -1,0 +1,162 @@
+<style type="text/css">
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+    }
+
+    .tg td {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+    }
+
+    .tg th {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+    }
+
+    .tg .tg-x5q1 {
+        font-size: 16px;
+        text-align: left;
+        vertical-align: top
+    }
+
+    .tg .tg-vox4 {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: left;
+        vertical-align: top
+    }
+
+    .tg span {
+        font-size: 16px;
+    }
+
+    .tg .tg-bzci {
+        font-size: 20px;
+        text-align: center;
+        vertical-align: top
+    }
+
+    .tg .tg-0lax {
+        text-align: left;
+        vertical-align: top
+    }
+</style>
+<table class="tg">
+    <tbody>
+        <tr>
+            <td class="tg-bzci" colspan="2"><span style="font-weight:bold">Caso de prueba</span></td>
+        </tr>
+        <tr>
+            <td class="tg-x5q1"><span style="font-weight:bold">ID del caso de prueba:</span>
+                {{cases.identification}}</td>
+            <td class="tg-x5q1"><span style="font-weight:bold">Complejidad:</span> {{cases.complexity}}</td>
+        </tr>
+        <tr>
+            <td class="tg-x5q1"><span style="font-weight:bold">Fecha de creada:</span> {{cases.date_create}}</td>
+            <td class="tg-x5q1"><span style="font-weight:bold">Nombre del caso de prueba:</span> {{cases.name}}</td>
+        </tr>
+        <tr>
+            <td class="tg-x5q1"><span style="font-weight:bold">Fecha ejecutada:</span> {{cases.date_exec}}</td>
+            <td class="tg-x5q1"><span style="font-weight:bold">Tester encargado:</span> Silvia Hernandez</td>
+        </tr>
+        <tr>
+            <td class="tg-vox4" colspan="2">
+                <span style="font-weight:bold"></span>Descripcion</span>
+                <br>
+                {{{cases.description}}}
+            </td>
+        </tr>
+        <tr>
+            <td class="tg-0lax" colspan="2">
+                <span style="font-weight:bold">Condiciones previas:</span>
+                <br>
+                <span class="display:block">
+                    {{#each cases.casePreCondition}}
+                    <p>
+                        {{index}}.
+                        {{description}}
+                    </p>
+                    {{/each}}
+                </span>
+            </td>
+
+        </tr>
+        <tr>
+            <td class="tg-0lax" colspan="2">
+                <span style="font-weight:bold">Condiciones esperadas:</span>
+                <br>
+                <span class="display:block">
+                    {{#each cases.casePostCondition}}
+                    <p>
+                        {{index}}.
+                        {{description}}
+                    </p>
+                    {{/each}}
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tg-0lax" colspan="2">
+                <span style="font-weight:bold">Condiciones especiales:</span>
+                <br>
+                <span class="display:block">
+                    {{#each cases.caseSpecialCondition}}
+                    <p>
+                        {{index}}.
+                        {{description}}
+                    </p>
+                    {{/each}}
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<table class="tg">
+    <thead>
+        <tr>
+            <th class="tg-vox4">PASO</th>
+            <th class="tg-vox4">PASO DE PRUEBA</th>
+            <th class="tg-vox4">RESULTADO ESPERADO</th>
+            <th class="tg-vox4">TIEMPO</th>
+            <th class="tg-vox4">ESTADO(PASA/FALLA)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each cases.caseStep}}
+        <tr>
+            <td class="tg-x5q1">
+                {{index}}
+            </td>
+            <td class="tg-x5q1">
+                {{name}}
+            </td>
+            <td class="tg-x5q1">
+                {{expectedResult}}
+            </td>
+            <td class="tg-x5q1">
+                {{time}}
+            </td>
+            <td class="tg-x5q1">
+                {{estado}}
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<br>

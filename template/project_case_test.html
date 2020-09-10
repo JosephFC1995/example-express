@@ -1,0 +1,204 @@
+<style type="text/css">
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+    }
+
+    .tg td {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+    }
+
+    .tg th {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+    }
+
+    .tg .tg-x5q1 {
+        font-size: 16px;
+        text-align: left;
+        vertical-align: top
+    }
+
+    .tg .tg-vox4 {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: left;
+        vertical-align: top
+    }
+
+    .tg span {
+        font-size: 16px;
+    }
+
+    .tg .tg-bzci {
+        font-size: 20px;
+        text-align: center;
+        vertical-align: top
+    }
+
+    .tg .tg-0lax {
+        text-align: left;
+        vertical-align: top
+    }
+</style>
+
+<h1>
+    {{project.name}}
+</h1>
+
+<h4>
+    Estado del proyecto : {{project.status}}
+</h4>
+
+<h4>
+    Prefijo del proyecto : {{project.prefix}}
+</h4>
+
+<h4>
+    Prefijo del proyecto : {{project.comentary}}
+</h4>
+
+
+<h4>
+    URL proyecto : <a href="{{project.url}}">URL</a>
+</h4>
+
+<h4>
+    Fecha inicio del proyecto : {{project.dateStart}}
+</h4>
+
+<h4>
+    Fecha cierre del proyecto : {{project.dateFinish}}
+</h4>
+
+<h2>
+    Casos de prueba:
+</h2>
+
+{{#each cases}}
+<table class="tg">
+    <thead>
+        <tr>
+            <th class="tg-vox4">Nombre del proyecto</th>
+            <th class="tg-x5q1">{{../project.name}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="tg-bzci" colspan="2"><span style="font-weight:bold">Caso de prueba</span></td>
+        </tr>
+        <tr>
+            <td class="tg-x5q1"><span style="font-weight:bold">ID del caso de prueba:</span>
+                {{../project.prefix}}-{{identification}}</td>
+            <td class="tg-x5q1"><span style="font-weight:bold">Complejidad:</span> {{complexity}}</td>
+        </tr>
+        <tr>
+            <td class="tg-x5q1"><span style="font-weight:bold">Fecha de creada:</span> {{date_create}}</td>
+            <td class="tg-x5q1"><span style="font-weight:bold">Nombre del caso de prueba:</span> {{name}}</td>
+        </tr>
+        <tr>
+            <td class="tg-x5q1"><span style="font-weight:bold">Fecha ejecutada:</span> {{date_exec}}</td>
+            <td class="tg-x5q1"><span style="font-weight:bold">Tester encargado:</span> Silvia Hernandez</td>
+        </tr>
+        <tr>
+            <td class="tg-vox4" colspan="2">
+                <span style="font-weight:bold"></span>Descripcion</span>
+                <br>
+                {{{description}}}
+            </td>
+        </tr>
+        <tr>
+            <td class="tg-0lax" colspan="2">
+                <span style="font-weight:bold">Condiciones previas:</span>
+                <br>
+                <span class="display:block">
+                    {{#each casePreCondition}}
+                    <p>
+                        {{index}}.
+                        {{description}}
+                    </p>
+                    {{/each}}
+                </span>
+            </td>
+
+        </tr>
+        <tr>
+            <td class="tg-0lax" colspan="2">
+                <span style="font-weight:bold">Condiciones esperadas:</span>
+                <br>
+                <span class="display:block">
+                    {{#each casePostCondition}}
+                    <p>
+                        {{index}}.
+                        {{description}}
+                    </p>
+                    {{/each}}
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tg-0lax" colspan="2">
+                <span style="font-weight:bold">Condiciones especiales:</span>
+                <br>
+                <span class="display:block">
+                    {{#each caseSpecialCondition}}
+                    <p>
+                        {{index}}.
+                        {{description}}
+                    </p>
+                    {{/each}}
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<table class="tg">
+    <thead>
+        <tr>
+            <th class="tg-vox4">PASO</th>
+            <th class="tg-vox4">PASO DE PRUEBA</th>
+            <th class="tg-vox4">RESULTADO ESPERADO</th>
+            <th class="tg-vox4">TIEMPO</th>
+            <th class="tg-vox4">ESTADO(PASA/FALLA)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each caseStep}}
+        <tr>
+            <td class="tg-x5q1">
+                {{index}}
+            </td>
+            <td class="tg-x5q1">
+                {{name}}
+            </td>
+            <td class="tg-x5q1">
+                {{expectedResult}}
+            </td>
+            <td class="tg-x5q1">
+                {{time}}
+            </td>
+            <td class="tg-x5q1">
+                {{estado}}
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<br>
+{{/each}}
